@@ -18,16 +18,7 @@ object MyModule {
 
     @Singleton
     @Provides
-    fun providePhotoRepository(
-        photoDao: PhotoDao,
-        apiClient: ApiClient
-    ): PhotoRepository {
-        return PhotoRepository(photoDao, apiClient)
-    }
-
-    @Singleton
-    @Provides
-    fun providePhotoDao(application: Application): PhotoDao {
+    fun providePhotoDao(application: Application): PhotoDao {       //todo appContext
         return Room.databaseBuilder(
             application,
             PhotoDatabase::class.java,
@@ -40,4 +31,15 @@ object MyModule {
     fun provideApiClient(): ApiClient{
         return ApiClient()
     }
+
+
+    @Singleton
+    @Provides
+    fun providePhotoRepository(
+        photoDao: PhotoDao,
+        apiClient: ApiClient
+    ): PhotoRepository {
+        return PhotoRepository(photoDao, apiClient)
+    }
+
 }

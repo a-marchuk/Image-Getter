@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
-    private val retrofit = Retrofit.Builder()
+    private val retrofit = Retrofit.Builder()   //todo DI
         .baseUrl("https://source.unsplash.com/random")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
